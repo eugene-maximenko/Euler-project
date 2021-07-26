@@ -9,29 +9,32 @@
 2. Проверять каждое целое число на простоту.
 3. Если оно простое, добавить его в массив простых чисел. Если нет, то брейкнуть цикл
 
+39/2 - не целый результат, континью
+39/3 - результат 13 он целый, проверка. 13 простое число. Выводим 13 и прекращаем работу
+
+20/2 - результат 10, видим что он делится на что-то еще кроме 10, выходим из подцикла
+
  */
 
-const number = 600851475143
-let anser = 0
+const number = 39
 
-for (let deviant = 2; deviant < number; deviant++) {
+for (let divideOn = 2; divideOn < number; divideOn++) {
+    let divideResult = number / divideOn;
 
-    console.log(number / deviant);
+    // Console the whole numbers
+    if (number % divideOn === 0) {
+        console.log(`${number} / ${divideOn} = ${divideResult}`)
 
-    if (divide !== 0) {
-        continue;
-    }
+        for (let integer2nd = 2; integer2nd < divideResult; integer2nd++) {
+            
+            if (Number.isInteger(divideResult / integer2nd)) {
+                console.log(`${divideResult} не является простым числом`)
+                break;
+            } else if (divideResult / integer2nd === divideResult - 1) {
+                console.log(`${divideResult} / ${integer2nd} = ${divideResult / integer2nd}`)
+            }
 
-    for (let iter2 = 2; iter2 < divider; iter2++) {
-
-        if (divider % iter2 === 0) {
-            break;
         }
-
-        answer = divider;
-        break
     }
-    
-    if (answer) return;
 
 }
