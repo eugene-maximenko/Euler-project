@@ -16,4 +16,7 @@ for (let i = 1; i <= 100; i++) {
     sumSquare += i;
 }
 
-console.log(Math.pow(sumSquare, 2) - squareSum);
+sumSquare = sumSquare ** 2
+
+console.log(sumSquare - squareSum); // 25164150
+
