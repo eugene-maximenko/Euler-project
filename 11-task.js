@@ -49,7 +49,7 @@ for (let index = 0; index < array.length; index++) {
     if (multiplySide > maxSide) {
         maxSide = multiplySide
         sideElements = sideArray
-    } 
+    }
 }
 
 console.log(maxSide, sideElements) // 48477312 (4) ['78', '78', '96', '83']
