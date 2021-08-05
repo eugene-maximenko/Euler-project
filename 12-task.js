@@ -28,6 +28,7 @@ _________________________
 6. Если счетчик делителей >= 499 то прерываю цикл. Если нет, продолжаю цикл.
 
 */
+var time = performance.now();
 
 let integer = 0
 let sum = 0
@@ -45,9 +46,12 @@ while (true) {
     }
 
     console.log(divideCounter)
-    
+
     if (divideCounter > 500) {
         console.log(sum)
         break
     }
 }
+
+time = performance.now() - time;
+console.log('Время выполнения = ', time);
