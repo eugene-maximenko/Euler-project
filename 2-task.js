@@ -4,23 +4,23 @@
 
 Найдите сумму всех четных элементов ряда Фибоначчи, которые не превышают четыре миллиона. */
 
-const fibonachiArray = new Array(1, 2)
-let newFibonachiElement = 0
-let sum = 2;
-
+let numOne = 1
+let numTwo = 2
+let sum = 2
 while (true) {
-    newFibonachiElement = fibonachiArray[fibonachiArray.length - 1] + fibonachiArray[fibonachiArray.length - 2]
 
-    if (newFibonachiElement > 4000000) {
+    let fibonachiNum = numOne + numTwo
+
+    if (fibonachiNum > 4000000) {
         break
     }
 
-    fibonachiArray.push(newFibonachiElement)
-
-    if (newFibonachiElement % 2 === 0) {
-        sum += newFibonachiElement;
+    if (fibonachiNum % 2 === 0) {
+        sum += fibonachiNum
     }
+
+    numOne = numTwo
+    numTwo = fibonachiNum
 }
 
-console.log(fibonachiArray);
-console.log(sum); // 4613732
+console.log(sum)

@@ -28,6 +28,8 @@ _________________________
 6. Если счетчик делителей >= 499 то прерываю цикл. Если нет, продолжаю цикл.
 
 */
+
+const { performance } = require('perf_hooks')
 var time = performance.now();
 
 let integer = 0
@@ -44,8 +46,6 @@ while (true) {
             divideCounter++
         }
     }
-
-    console.log(divideCounter)
 
     if (divideCounter > 500) {
         console.log(sum)
