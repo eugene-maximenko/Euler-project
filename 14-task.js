@@ -14,3 +14,30 @@ n → 3n + 1 (n - нечетное)
 Примечание: Следующие за первым элементы последовательности могут быть больше миллиона.
 */
 
+let bestNumber = 0
+let bestCounter = 0
+
+for (let i = 2; i < 1000000; i++) {
+    let number = i
+    let tempCounter = 0
+
+    while (true) {
+
+        tempCounter++
+        
+        if (number === 1) {
+            break
+        } else if (number % 2 === 0) {
+            number /= 2
+        } else if (number % 2 !== 0) {
+            number = 3 * number + 1
+        }
+    }
+
+    if (tempCounter > bestCounter) {
+        bestCounter = tempCounter
+        bestNumber = i
+    }
+}
+
+console.log(bestNumber, bestCounter)
