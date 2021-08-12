@@ -30,7 +30,7 @@ for (let i = 1; i <= 441; i++) {
 
 let map = new Map();
 let counter = 0
-let destination = '441'
+let destination = 441
 
 // map.set('1', ['2', '4'])
 // map.set('2', ['3', '5'])
@@ -48,12 +48,12 @@ function findAllWays(key) {
         return
     }
 
-    map.get(key).forEach(element => {
+    newMap.get(key).forEach(element => {
         return findAllWays(element)
     });
 }
 
-findAllWays('1')
+findAllWays(1)
 
 console.log(counter)
 console.log(newMap)
