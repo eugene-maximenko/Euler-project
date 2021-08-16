@@ -10,6 +10,13 @@
 
 */
 
-const result = Math.pow(2, 1000)
-console.log(result)
-console.log(result/1000)
+let result = BigInt(Math.pow(2, 1000))
+result = result.toString()
+
+let max = 0
+
+for (let i = 0; i < result.length; i++) {
+    max += parseInt(result[i], 10)
+}
+
+console.log(max)
