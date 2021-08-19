@@ -5,18 +5,6 @@
 
 Примечание: Не считайте пробелы и дефисы. Например, число 342 (three hundred and forty-two) состоит из 23 букв, число 115 (one hundred and fifteen) - из 20 букв. Использование "and" при записи чисел соответствует правилам британского английского. */
 
-/* Замутить словарь
-
-1. Если не находим число в словаре, то составляем его:
-десятки:
-1. Разбить число на разряды; к первому прибавить ноль и найти его в num.
-2. Отыскать разряд единиц в num.
-3. Конкатенировать строки
-сотни
-
-
- */
-
 let num = {
     1: 'one',
     2: 'two',
@@ -48,9 +36,12 @@ let num = {
     1000: 'one thousand'
 }
 
-for (let i = 1; i <= 300; i++) {
+let lengthOfLetters = 0
+
+for (let i = 1; i <= 1000; i++) {
     if (num[i]) {
         console.log(num[i])
+        lengthOfLetters += num[i].replace(/\s/g, '').length
         continue
     }
 
@@ -60,12 +51,28 @@ for (let i = 1; i <= 300; i++) {
         let decadeNumber = parseInt(stringNumber[0] + '0', 10)
         let units = parseInt(stringNumber[1], 10)
         console.log(i, decadeNumber, units, `${num[decadeNumber]} ${num[units]}`);
-    } else if (i > 100) {
+        lengthOfLetters += `${num[decadeNumber]} ${num[units]}`.replace(/\s/g, '').length
+    } else if (i > 100) { }
+    if (i % 100 === 0) {
+        let stringNumber = i.toString().split('')
+        let hundredNumber = parseInt(stringNumber[0], 10)
+        console.log(i, hundredNumber, `${num[hundredNumber]} hundred`);
+        lengthOfLetters += `${num[hundredNumber]} hundred`.replace(/\s/g, '').length
+    } else if (i % 10 === 0) {
+        let stringNumber = i.toString().split('')
+        let hundredNumber = parseInt(stringNumber[0], 10)
+        let decadeNumber = parseInt(stringNumber[1] + '0', 10)
+        console.log(i, hundredNumber, decadeNumber, `${num[hundredNumber]} hundred and ${num[decadeNumber]}`);
+        lengthOfLetters += `${num[hundredNumber]} hundred and ${num[decadeNumber]}`.replace(/\s/g, '').length
+    } else {
         let stringNumber = i.toString().split('')
         let hundredNumber = parseInt(stringNumber[0], 10)
         let decadeNumber = parseInt(stringNumber[1] + '0', 10)
         let units = parseInt(stringNumber[2], 10)
         console.log(i, hundredNumber, decadeNumber, units, `${num[hundredNumber]} hundred and ${num[decadeNumber]} ${num[units]}`);
+        lengthOfLetters += `${num[hundredNumber]} hundred and ${num[decadeNumber]} ${num[units]}`.replace(/\s/g, '').length
     }
 
 }
+
+console.log(lengthOfLetters)
