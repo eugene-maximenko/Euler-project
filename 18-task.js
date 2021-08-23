@@ -64,7 +64,7 @@ function name(string, index) {
     let b = arr[string + 1][index + 1]
 
     if (a > b) {
-        
+
     }
-    
+
 }
