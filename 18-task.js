@@ -36,35 +36,35 @@
 
 То есть, 3 + 7 + 4 + 9 = 23.*/
 
-
-/* Просто иду по максимам:
-
-1. От текущего элемента обращаюсь в следующую строку(следующий элемент главного массива).
-2. Сравниваю между собой элемент с таким же индексом из и с индексом + 1. Добавляю его к сумме.
-3. Тот, который больше, беру за основу.
-4. Выхожу из рекурсии, если это был последний элемент массива
-
-*/
-
-let arr = [
+let array = [
     [3],
     [7, 4],
     [2, 4, 6],
     [8, 5, 9, 3]
 ]
 
-let sum = 0
-
-function name(string, index) {
-    if (string === arr.length - 1) {
-        return
+function triangle(row) {
+    if (array[row].length === 1) {
+        return array[row][0]
     }
 
-    let a = arr[string + 1][index]
-    let b = arr[string + 1][index + 1]
+    for (let i = 0; i < array[row].length - 1; i++) {
 
-    if (a > b) {
+        let a = array[row][i]
+        let b = array[row][i + 1]
 
+        if (a >= b) {
+            console.log(a)
+            array[row - 1][i] += a
+        } else {
+            console.log(b)
+            array[row - 1][i] += b
+        }
     }
+
+    return triangle(row - 1)
 
 }
+
+console.log(triangle(array.length - 1))
+
