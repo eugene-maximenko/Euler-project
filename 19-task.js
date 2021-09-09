@@ -11,8 +11,15 @@
 
 /* Года повторяются */
 
-/* Работаем с конца. 
+/* Сколько первых чисел месяца в 20-м веке приходятся на воскресенья*
+
+1. Мне нужно отрицать
 
 2000 - високосный.*/
-let date = new Date(1900, 1, 1)
-console.log(date.getDay())
+
+let date = new Date(2000, 11, 31);
+let weekday = date.getDay();
+
+console.log(weekday); // 1
+console.log(date); // 1
+console.log(new Date(date-500)); // 1
